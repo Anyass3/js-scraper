@@ -41,10 +41,11 @@ const getPage = async (media) => {
   )} Firefox/${rv}.0`;
   await page.setUserAgent(user_agent);
 
-  await page.setViewport({
-    width: 1024 + Math.floor(Math.random() * 1000),
-    height: 768 + Math.floor(Math.random() * 1000),
-  });
+  if (!media)
+    await page.setViewport({
+      width: 1024 + Math.floor(Math.random() * 1000),
+      height: 768 + Math.floor(Math.random() * 1000),
+    });
   return page;
 };
 
@@ -68,8 +69,8 @@ const parseUrl = function (url) {
 app.get('/', async function (req, res) {
   tick();
   const url = parseUrl(req.query.url || 'www.google.com');
-  const waitUntil = req.query.waitUntil||'domcontentloaded';
-  const rtype = req.query.res
+  const waitUntil = req.query.waitUntil || 'domcontentloaded';
+  const rtype = req.query.res;
 
   const page = await getPage(rtype === 'screenshot');
   console.log(colors.blue('\nFetching::' + url));
@@ -90,6 +91,7 @@ app.get('/', async function (req, res) {
 
   try {
     if (rtype === 'screenshot') {
+      console.log(colors.green('screenshot'));
       await page.screenshot().then(function (buffer) {
         res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
         res.setHeader('Content-Type', 'image/png');
