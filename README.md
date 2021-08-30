@@ -11,14 +11,14 @@ Puppeteerjs
 
 - to take screenshot
 
-    - https://nscrape.herokuapp.com?url=www.google.com&rtype=screenshot
+    - https://nscrape.herokuapp.com?url=www.google.com&res=screenshot
 
 - other query augument is `waitUntil`:
     - options: `load`| `domcontentloaded` | `networkidle0` | `networkidle2`
 
     - example: 
     
-        - https://nscrape.herokuapp.com?url=www.google.com&rtype=screenshot&waitUntil=networkidle0
+        - https://nscrape.herokuapp.com?url=www.google.com&res=screenshot&waitUntil=networkidle0
 
 
 
