@@ -1,8 +1,8 @@
 # headless-chrome
-Puppeteerjs
+[Puppeteerjs](https://github.com/puppeteer/puppeteer#readme)
 # scraper for javascript sites
 
-> hosted: [https://nscrape.herokuapp.com]
+> hosted: https://nscrape.herokuapp.com
 
 ## how to use
 - for example to scrape google
@@ -24,5 +24,5 @@ Puppeteerjs
 
 ### To run on heroku
 add buildpacks
-- [https://github.com/jontewks/puppeteer-heroku-buildpack]
+- https://github.com/jontewks/puppeteer-heroku-buildpack
 - heroku/nodejs# js-scraper
